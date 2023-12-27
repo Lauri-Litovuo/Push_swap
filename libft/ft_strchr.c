@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2023/12/27 15:57:01 by llitovuo         ###   ########.fr       */
+/*   Created: 2023/10/27 08:39:31 by llitovuo          #+#    #+#             */
+/*   Updated: 2023/11/14 12:10:41 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int ac, char **av)
+#include <stdlib.h>
+
+char	*ft_strchr(const char *s, int c)
 {
-    
+	char	*sp;
+	char	ch;
+
+	sp = (char *)s;
+	ch = c;
+	while (*sp != '\0')
+	{
+		if (*sp == ch)
+			return (sp);
+		sp++;
+	}
+	if (*sp == ch)
+		return (sp);
+	return (NULL);
 }

@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: llitovuo <llitovuo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2023/12/27 15:57:01 by llitovuo         ###   ########.fr       */
+/*   Created: 2023/10/30 08:46:49 by llitovuo          #+#    #+#             */
+/*   Updated: 2023/11/16 13:54:35 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int ac, char **av)
+#include <unistd.h>
+#include "libft.h"
+
+void	ft_putstr_fd(char *s, int fd)
 {
-    
+	int	i;
+
+	i = 0;
+	i = ft_strlen(s);
+	write(fd, s, i);
 }

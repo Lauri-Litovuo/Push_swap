@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2023/12/27 15:57:01 by llitovuo         ###   ########.fr       */
+/*   Created: 2023/10/24 16:28:36 by llitovuo          #+#    #+#             */
+/*   Updated: 2023/10/30 15:49:32 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(int ac, char **av)
+#include <stdlib.h>
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    
+	unsigned long		i;
+	unsigned char		*dstp;
+	unsigned const char	*srcp;
+
+	dstp = dst;
+	srcp = src;
+	i = 0;
+	if (dstp == 0 && srcp == 0 && n)
+		return (dst);
+	while (i != n)
+	{
+		dstp[i] = srcp[i];
+		i++;
+	}
+	return (dst);
 }
