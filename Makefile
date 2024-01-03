@@ -1,34 +1,54 @@
 NAME = push_swap
 
-SRCS_DIR = ./srcs/
-OBJS_DIR = ./objs
-INCLUDES_DIR = ./
+LIBFT = libft/libft.a
 
-SOURCES = $(addprefix $(SOURCES_DIR), push_swap.c )
-
-OBJECTS = $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS_DIR))
-
-CFLAGS = -Wall -Wextra -Werro
-CC = cc
+S = srcs/
+O = objs/
+I = incl/
+L = libft/
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	@ar -rsc $(NAME) $(OBJECTS)
-	$(info CREATED $(NAME))
+.PHONY: all clean fclean re
 
-$(OBJS_DIR)/%.o: %.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDES)
+CC = gcc
+CFLAGS += -Wall -Wextra -Werror -I$I
+LDFLAGS += 
 
-clean:
-	@rm -rf $(OBJS_DIR)
-	$(info DELETED $(OBJECTS))
+SRC = $Spush_swap.c \
+
+OBJ = $(SRC:$S%=$O%.o)
+
+$O:
+	@mkdir -p $@
+	@echo "Making obj dir and files.."
+
+$(OBJ): | $O
+
+$O%.o: $S%
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(LIBFT) $(OBJ)
+	@cp $(LIBFT) $(NAME)
+	@ar -cr $(NAME) $(OBJ)
+
+$(LIBFT): $L
+	@make -C $L
+
+cleanobj:
+	@rm -f $(wildcard $(OBJ))
+
+cleanobjdir: cleanobj
+	@rm -rf $O
+
+cleanlibft:
+	@make fclean -C $L
+
+clean: cleanobjdir cleanlibft
+	@echo "Cleaning object files and libft"
 
 fclean: clean
 	@rm -f $(NAME)
-	$(info DELETED $(NAME))
+	@echo "Project file removed"
 
 re: fclean all
-
-.PHONY: all clean fclean re

@@ -6,11 +6,18 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2023/12/27 17:14:11 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:40:57 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int ac, char **av)
+#include <stdio.h>
+#include "../libft/libft.h"
+#include "../incl/pushlib.h"
+
+
+
+int	main(void)
 {
-	
+	printf("hello");
+	return (0);
 }
