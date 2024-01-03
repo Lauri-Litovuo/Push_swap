@@ -1,6 +1,7 @@
 # Ignore temporary files
 *.tmp
 .DS_Store
+.vscode
 
 # Ignore build output directory
 build/
