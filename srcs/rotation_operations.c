@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:04:51 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/04 14:25:45 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/10 10:14:11 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	rotate_ab(t_stack **stack)
 		return ;
 	head = *stack;
 	iter = *stack;
-	stack = iter->next;
+	stack = &iter->next;
 	while (iter != NULL)
 	{
 		iter = iter->next;

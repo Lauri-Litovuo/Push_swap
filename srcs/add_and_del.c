@@ -6,13 +6,13 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:09:45 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/04 15:15:19 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:58:20 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
 
-t_stack	*ft_stacknew(int *content)
+t_stack	*ft_stacknew(int content)
 {
 	t_stack	*node;
 

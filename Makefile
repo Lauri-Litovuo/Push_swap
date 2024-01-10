@@ -11,7 +11,7 @@ all: $(NAME)
 
 .PHONY: all clean fclean re
 
-CC = gcc
+CC = cc
 CFLAGS += -Wall -Wextra -Werror -I$I
 LDFLAGS += 
 
@@ -19,8 +19,8 @@ SRC = $Spush_swap.c \
 		$Sadd_and_del.c \
 		$Spush_operations.c \
 		$Sreverse_operations.c \
-		$Srotation_operations \
-		$Sswap_operations \
+		$Srotation_operations.c \
+		$Sswap_operations.c \
 
 OBJ = $(SRC:$S%=$O%.o)
 
@@ -35,7 +35,7 @@ $O%.o: $S%
 
 $(NAME): $(LIBFT) $(OBJ)
 	@cp $(LIBFT) $(NAME)
-	@ar -cr $(NAME) $(OBJ)
+	@ar -crs $(NAME) $(OBJ)
 
 $(LIBFT): $L
 	@make -C $L
