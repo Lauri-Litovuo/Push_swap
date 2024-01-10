@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/04 15:24:34 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/10 09:58:35 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,39 @@
 #include "../libft/libft.h"
 #include "../incl/pushlib.h"
 
-int	main(void)
+static t_stack	*make_a_stack(char **given_list, int ac)
 {
 	t_stack	**stack;
-	int		i;
-	t_stack	**new;
+	t_stack	**new_node;
+	int		content;
 
-	*stack = ft_stacknew(5);
-	*new = ft_stacknew(4);
-	ft_stackadd_front(stack, new);
-	*new = ft_stacknew(3);
-	ft_stackadd_front(stack, new);
-	*new = ft_stacknew(2);
-	ft_stackadd_front(stack, new);
-	*new = ft_stacknew(1);
-	ft_stackadd_front(stack, new);
-	
+	content = ft_atoi(given_list[ac]);
+	*stack = ft_stacknew(content);
+	if (!stack)
+		return (0);
+	ac--;
+	while (ac > 1)
+	{
+		content = ft_atoi(given_list[ac]);
+		*new_node = ft_stacknew(content);
+		if (!new_node)
+			return (0);
+		ft_stackadd_front(stack, new_node);
+	}
+	return (*stack);
+}
+
+
+int	main(int ac, char **av)
+{
+	t_stack	**stack;
+	t_stack	*temp;
+
+	*stack = make_a_stack(av, ac);
+	temp = *stack;
+	while (temp != NULL)
+	{
+		ft_printf("%d\n", temp->content);
+		temp = temp->next;
+	}
 }
