@@ -16,6 +16,11 @@ CFLAGS += -Wall -Wextra -Werror -I$I
 LDFLAGS += 
 
 SRC = $Spush_swap.c \
+		$Sadd_and_del.c \
+		$Spush_operations.c \
+		$Sreverse_operations.c \
+		$Srotation_operations \
+		$Sswap_operations \
 
 OBJ = $(SRC:$S%=$O%.o)
 
