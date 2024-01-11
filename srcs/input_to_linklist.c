@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/10 16:58:11 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:13:20 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,14 @@ static char	**make_array(char **av, int count)
 	while (i < count)
 	{
 		elem_list[i] = ft_strdup(av[1 + i]);
-		if (elem_list[i] == 0)
+		if (elem_list[i] == NULL)
 		{
 			free_array(elem_list, i);
 			return (NULL);
 		}
 		i++;
 	}
-	i++;
-	elem_list[i] = 0;
+	elem_list[count] = 0;
 	return (elem_list);
 }
 
@@ -104,6 +103,7 @@ t_stack	*input_to_list(int ac, char **av)
 
 	elem_list = NULL;
 	stack_a = NULL;
+	count = 0;
 	if (ac < 2)
 		return (0);
 	if (ac == 2)
