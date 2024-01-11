@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:13:40 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:17:18 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_stack	*input_to_list(int ac, char **av)
 		elem_list = make_array(av, count);
 	if (validate_input(elem_list, count - 1) == 0)
 	{
-		ft_printf("Error: non-valid input\n");
+		ft_printf("Error: invalid input\n");
 		free_array(elem_list, count - 1);
 		return (NULL);
 	}

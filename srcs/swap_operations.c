@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:19:50 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/10 10:17:01 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:42:52 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	swap_ab(t_stack **stack)
 
 void	swap_simult(t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_a == NULL || stack_b == NULL)
-		return ;
 	swap_ab(stack_a);
 	swap_ab(stack_b);
 }
