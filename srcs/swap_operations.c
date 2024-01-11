@@ -6,14 +6,13 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:19:50 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:42:52 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:02:31 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
-#include "../libft/libft.h"
 
-void	swap_ab(t_stack **stack)
+void	swap_ab(t_stack **stack, char ch)
 {
 	t_stack	*temp;
 	t_stack	*third;
@@ -26,10 +25,13 @@ void	swap_ab(t_stack **stack)
 	temp->next = *stack;
 	temp->next->next = third;
 	*stack = temp;
+	if (ch == 'a' || ch == 'b')
+		ft_printf("s%c\n", ch);
 }
 
 void	swap_simult(t_stack **stack_a, t_stack **stack_b)
 {
-	swap_ab(stack_a);
-	swap_ab(stack_b);
+	swap_ab(stack_a, 'c');
+	swap_ab(stack_b, 'c');
+	ft_printf("ss\n");
 }

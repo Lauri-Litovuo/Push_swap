@@ -6,12 +6,11 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:24:07 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 12:27:04 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:02:12 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
-#include "../libft/libft.h"
 
 int	count_elements(char *str)
 {

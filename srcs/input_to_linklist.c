@@ -6,12 +6,11 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:17:18 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:02:08 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
-#include "../libft/libft.h"
 
 static void	free_array(char **array, int size)
 {

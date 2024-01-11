@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:01:54 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 12:13:00 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:01:59 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSHLIB_H
 # include <stdarg.h>
 # include <stdlib.h>
+# include "../libft/libft.h"
 # include <stdio.h> //delete this
 
 typedef struct s_stack
@@ -26,10 +27,10 @@ typedef struct s_stack
 t_stack	*ft_stacknew(int content);
 void	ft_stackadd_front(t_stack **stack, t_stack *new);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
-void	push_ab(t_stack **stack_from, t_stack **stack_to);
-void	swap_ab(t_stack **stack);
+void	push_ab(t_stack **stack_from, t_stack **stack_to, char ch);
+void	swap_ab(t_stack **stack, char ch);
 void	swap_simult(t_stack **stack_a, t_stack **stack_b);
-void	rotate_ab(t_stack **stack);
+void	rotate_ab(t_stack **stack, char ch);
 void	rotate_both(t_stack **stack_a, t_stack **stack_b);
 void	reverse_rot(t_stack **stack_ab);
 void	reverse_rot_both(t_stack **stack_a, t_stack **stack_b);

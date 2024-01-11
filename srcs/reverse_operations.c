@@ -6,13 +6,13 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:30:51 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 13:49:41 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:02:42 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
 
-void	reverse_rot(t_stack **stack_ab)
+void	reverse_rot(t_stack **stack_ab, char ch)
 {
 	t_stack	*temp;
 
@@ -25,10 +25,13 @@ void	reverse_rot(t_stack **stack_ab)
 	}
 	temp->next->next = *stack_ab;
 	temp->next = NULL;
+	if (ch == 'a' || ch == 'b')
+		ft_printf("rr%c\n", ch);
 }
 
 void	reverse_rot_both(t_stack **stack_a, t_stack **stack_b)
 {
-	reverse_rot(stack_a);
-	reverse_rot(stack_b);
+	reverse_rot(stack_a, 'c');
+	reverse_rot(stack_b, 'c');
+	ft_printf("rrr\n");
 }
