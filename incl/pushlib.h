@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:01:54 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:01:59 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 15:05:32 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	swap_ab(t_stack **stack, char ch);
 void	swap_simult(t_stack **stack_a, t_stack **stack_b);
 void	rotate_ab(t_stack **stack, char ch);
 void	rotate_both(t_stack **stack_a, t_stack **stack_b);
-void	reverse_rot(t_stack **stack_ab);
+void	reverse_rot(t_stack **stack_ab, char ch);
 void	reverse_rot_both(t_stack **stack_a, t_stack **stack_b);
 t_stack	*make_stack(t_stack	**stack, char **elem_list, int count);
 t_stack	*input_to_list(int ac, char **av);
