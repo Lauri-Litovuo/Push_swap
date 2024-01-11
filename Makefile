@@ -21,6 +21,8 @@ SRC = $Spush_swap.c \
 		$Sreverse_operations.c \
 		$Srotation_operations.c \
 		$Sswap_operations.c \
+		$Scount_and_validate_input.c \
+		$Sinput_to_linklist.c \
 
 OBJ = $(SRC:$S%=$O%.o)
 
@@ -30,12 +32,12 @@ $O:
 
 $(OBJ): | $O
 
-$O%.o: $S%
+$O%.o: $S% $(LIBFT)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJ)
-	@cp $(LIBFT) $(NAME)
-	@ar -crs $(NAME) $(OBJ)
+	@$(CC) $(CFLAGS) $^ -o $@
+	@echo "Project ready for use."
 
 $(LIBFT): $L
 	@make -C $L
