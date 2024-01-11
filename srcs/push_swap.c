@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/10 17:00:43 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:14:45 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ int	main(int ac, char **av)
 	stack = NULL;
 	temp = NULL;
 	stack = input_to_list(ac, av);
+	if (!stack)
+		return (0);
 	temp = stack;
 	while (temp != NULL)
 	{
-		printf("%d\n", temp->content);
+		ft_printf("%d\n", temp->content);
 		temp = temp->next;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 11:13:20 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:13:40 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,6 @@ static void	free_array(char **array, int size)
 		size--;
 	}
 	free(array);
-}
-
-int	count_elements(char *str)
-{
-	int		count;
-	char	ch;
-
-	count = 0;
-	ch = 32;
-	while (*str != '\0')
-	{
-		if (*str == ch)
-			str++;
-		else
-		{
-			while (*str != ch && *str != '\0')
-			{
-				str++;
-			}
-			count++;
-		}
-	}
-	return (count);
 }
 
 t_stack	*make_stack(t_stack	**stack, char **elem_list, int count)
@@ -103,18 +80,19 @@ t_stack	*input_to_list(int ac, char **av)
 
 	elem_list = NULL;
 	stack_a = NULL;
-	count = 0;
-	if (ac < 2)
-		return (0);
+	count = ac - 1;
 	if (ac == 2)
 	{
 		elem_list = ft_split(av[1], 32);
 		count = count_elements(av[1]);
 	}
 	else
-	{
-		count = ac - 1;
 		elem_list = make_array(av, count);
+	if (validate_input(elem_list, count - 1) == 0)
+	{
+		ft_printf("Error: non-valid input\n");
+		free_array(elem_list, count - 1);
+		return (NULL);
 	}
 	stack_a = make_stack(&stack_a, elem_list, count - 1);
 	free_array(elem_list, count - 1);
