@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:01:54 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:05:32 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/13 19:14:15 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_stack	*make_stack(t_stack	**stack, char **elem_list, int count);
 t_stack	*input_to_list(int ac, char **av);
 int		count_elements(char *str);
 int		validate_input(char **elem_list, int count);
+void	mini_algo(t_stack **stack_a);
 
 #endif
