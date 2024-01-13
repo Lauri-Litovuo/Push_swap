@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:02:18 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:09:03 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,5 @@ int	main(int ac, char **av)
 		ft_printf("%d\n", temp->content);
 		temp = temp->next;
 	}
-	/*reverse_rot(&head);
-	temp = head;
-	ft_printf("\n\n", temp->content);
-	while (temp != NULL)
-	{
-		ft_printf("%d\n", temp->content);
-		temp = temp->next;
-	}*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 13:30:51 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:02:42 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/13 17:57:11 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	reverse_rot(t_stack **stack_ab, char ch)
 		temp = temp->next;
 	}
 	temp->next->next = *stack_ab;
+	*stack_ab = temp->next;
 	temp->next = NULL;
 	if (ch == 'a' || ch == 'b')
 		ft_printf("rr%c\n", ch);
