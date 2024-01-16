@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 18:16:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/13 19:11:06 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:05:11 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ static void	two_elements(t_stack **stack_a)
 	t_stack	*temp;
 
 	temp = *stack_a;
-	if (temp->next->next == NULL)
-	{
-		if (temp->next->content > temp->content)
-			return ;
-		else
-			swap_ab(&stack_a, 'a');
-	}
+	if (temp->next->index > temp->index)
+		return ;
+	else
+		swap_ab(stack_a, 'a');
 }
 
 static void	three_elements(t_stack **stack_a)
@@ -32,49 +29,49 @@ static void	three_elements(t_stack **stack_a)
 
 	temp = *stack_a;
 
-	if (temp->size == 2)
+	if (temp->index == 1)
 	{
 		temp = temp->next;
-		if (temp->size == 1)
-			swap_ab(&stack_a, 'a');
+		if (temp->index == 0)
+			swap_ab(stack_a, 'a');
 		else
-			reverse_rot(&stack_a, 'a');
+			reverse_rot(stack_a, 'a');
 	}
-	if (temp->size == 3)
+	else
 	{
 		temp = temp->next;
-		if (temp->size == 1)
-			rotate_ab(&stack_a, 'a');
+		if (temp->index == 0)
+			rotate_ab(stack_a, 'a');
 		else
 		{
-			rotate_ab(&stack_a, 'a');
-			swap_ab(&stack_a, 'a');
+			rotate_ab(stack_a, 'a');
+			swap_ab(stack_a, 'a');
 		}
 	}
 }
 
-void	mini_algo(t_stack **stack_a)
+void	sort_three(t_stack **stack_a)
 {
 	t_stack	*temp;
 
 	temp = *stack_a;
-	if (temp->next->next == NULL)
+	if (temp->next->next == 0)
 	{
-		two_elements(&stack_a);
+		two_elements(stack_a);
 		return ;
 	}
-	if (temp->size == 1)
+	else if (temp->index == 0)
 	{
 		temp = temp->next;
-		if (temp->size == 3)
+		if (temp->index == 2)
 		{
-			reverse_rot(&stack_a, 'a');
-			swap_ab(&stack_a, 'a');
+			reverse_rot(stack_a, 'a');
+			swap_ab(stack_a, 'a');
 		}
 		else
 			return ;
 	}
 	else
-		three_elements(&stack_a);
+		three_elements(stack_a);
 }
 
