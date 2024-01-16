@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:24:07 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:02:12 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:25:32 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,44 @@ static int	duplicate_check(char **elem_list, int count)
 {
 	int		i;
 	int		j;
+	int		k;
 	int		validity;
 
 	i = 0;
-	j = 0;
+	k = 0;
 	validity = 1;
-	while (i < count)
+	while (k < count - 1)
 	{
-		if (ft_strlen(elem_list[i]) >= ft_strlen(elem_list[i + 1]))
-			j = ft_strlen(elem_list[i]);
+		i = k + 1;
+		if (ft_strlen(elem_list[k]) >= ft_strlen(elem_list[i]))
+			j = ft_strlen(elem_list[k]);
 		else
-			j = ft_strlen(elem_list[i + 1]);
-		validity = ft_strncmp(elem_list[i], elem_list[i + 1], j);
-		if (validity == 0)
-			return (0);
-		i++;
+			j = ft_strlen(elem_list[i]);
+		while (i < count)
+		{
+			validity = ft_strncmp(elem_list[k], elem_list[i], j);
+			if (validity == 0)
+				return (0);
+			i++;
+		}
+		k++;
 	}
 	return (1);
+}
+
+static int	check_need(char **elem_list, int count)
+{
+	int		i;
+
+	i = 0;
+	while (i + 1 < count)
+	{
+		if (ft_atoi(elem_list[i]) < ft_atoi(elem_list[i + 1]))
+			i++;
+		else
+			return (1);
+	}
+	return (-1);
 }
 
 int	validate_input(char **elem_list, int count)
@@ -92,5 +113,8 @@ int	validate_input(char **elem_list, int count)
 	validity = duplicate_check(elem_list, count);
 	if (validity == 0)
 		return (0);
+	validity = check_need(elem_list, count);
+	if (validity == -1)
+		return (-1);
 	return (1);
 }

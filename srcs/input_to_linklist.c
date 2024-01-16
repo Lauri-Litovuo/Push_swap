@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/13 18:12:01 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:24:03 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ static void	free_array(char **array, int size)
 		size--;
 	}
 	free(array);
+}
+
+static void	invalid_handling(char **elem_list, int count, int validity)
+{
+	if (validity == 0)
+		ft_printf("Error\n");
+	if (validity == -1)
+		ft_printf("no need to sort\n"); //remove?
+	free_array(elem_list, count - 1);
+	return ;
 }
 
 t_stack	*make_stack(t_stack	**stack, char **elem_list, int count)
@@ -76,6 +86,7 @@ t_stack	*input_to_list(int ac, char **av)
 	t_stack	*stack_a;
 	char	**elem_list;
 	int		count;
+	int		validity;
 
 	elem_list = NULL;
 	stack_a = NULL;
@@ -87,10 +98,10 @@ t_stack	*input_to_list(int ac, char **av)
 	}
 	else
 		elem_list = make_array(av, count);
-	if (validate_input(elem_list, count - 1) == 0)
+	validity = validate_input(elem_list, count);
+	if (validity != 1)
 	{
-		ft_printf("Error\n");
-		free_array(elem_list, count - 1);
+		invalid_handling(elem_list, count, validity);
 		return (NULL);
 	}
 	stack_a = make_stack(&stack_a, elem_list, count - 1);
