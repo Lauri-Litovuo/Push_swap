@@ -26,6 +26,7 @@ SRC = $Spush_swap.c \
 		$Smini_algo.c \
 		$Sgive_index.c \
 		$Smedium_algos.c \
+		$Slarge_algo.c \
 
 OBJ = $(SRC:$S%=$O%.o)
 
