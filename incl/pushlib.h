@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:01:54 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/18 15:10:03 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:35:29 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	give_index(t_stack **stack_ab);
 void	sort_three(t_stack **stack_a);
 void	sort_four(t_stack **stack_a, t_stack **stack_b);
 void	sort_five(t_stack **stack_a, t_stack **stack_b);
-void	large_algo(t_stack **stack_a, t_stack **stack_b);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b);
+void	sorter_guider(t_stack **stack_a, t_stack **stack_b, int ac);
 
 #endif
