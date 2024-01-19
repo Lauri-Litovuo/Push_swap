@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:24:07 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/16 13:25:32 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:25:31 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,25 @@ static int	digit_check(char **elem_list, int count)
 static int	duplicate_check(char **elem_list, int count)
 {
 	int		i;
-	int		j;
+	int		len;
 	int		k;
 	int		validity;
 
-	i = 0;
 	k = 0;
-	validity = 1;
 	while (k < count - 1)
 	{
 		i = k + 1;
-		if (ft_strlen(elem_list[k]) >= ft_strlen(elem_list[i]))
-			j = ft_strlen(elem_list[k]);
-		else
-			j = ft_strlen(elem_list[i]);
 		while (i < count)
 		{
-			validity = ft_strncmp(elem_list[k], elem_list[i], j);
-			if (validity == 0)
-				return (0);
+			if (ft_strlen(elem_list[k]) != ft_strlen(elem_list[i]))
+				validity = 1;
+			else
+			{
+				len = ft_strlen(elem_list[k]);
+				validity = ft_strncmp(elem_list[k], elem_list[i], len);
+				if (validity == 0)
+					return (0);
+			}
 			i++;
 		}
 		k++;

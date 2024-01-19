@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:56:39 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/16 12:30:19 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:30:59 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,3 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 	push_ab(stack_b, stack_a, 'a');
 	rotate_ab(stack_a, 'a');
 }
-
-

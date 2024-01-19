@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/16 13:24:03 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:21:40 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ static void	invalid_handling(char **elem_list, int count, int validity)
 {
 	if (validity == 0)
 		ft_printf("Error\n");
-	if (validity == -1)
-		ft_printf("no need to sort\n"); //remove?
 	free_array(elem_list, count - 1);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 18:16:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/16 10:05:11 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:34:19 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	three_elements(t_stack **stack_a)
 	t_stack	*temp;
 
 	temp = *stack_a;
-
 	if (temp->index == 1)
 	{
 		temp = temp->next;
@@ -74,4 +73,3 @@ void	sort_three(t_stack **stack_a)
 	else
 		three_elements(stack_a);
 }
-

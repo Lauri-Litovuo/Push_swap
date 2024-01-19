@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 15:09:45 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/15 12:22:07 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:06:40 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	ft_stacksize(t_stack *stack)
 	int	count;
 
 	count = 0;
+	if (stack == NULL)
+		return (0);
 	while (stack != NULL)
 	{
 		stack = stack->next;
