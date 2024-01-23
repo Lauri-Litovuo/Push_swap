@@ -6,34 +6,11 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:24:07 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/19 15:25:31 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:12:30 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
-
-int	count_elements(char *str)
-{
-	int		count;
-	char	ch;
-
-	count = 0;
-	ch = 32;
-	while (*str != '\0')
-	{
-		if (*str == ch)
-			str++;
-		else
-		{
-			while (*str != ch && *str != '\0')
-			{
-				str++;
-			}
-			count++;
-		}
-	}
-	return (count);
-}
 
 static int	digit_check(char **elem_list, int count)
 {
@@ -49,7 +26,10 @@ static int	digit_check(char **elem_list, int count)
 		while (elem_list[i][j] != '\0')
 		{
 			validity = ft_isdigit(elem_list[i][j]);
-			if (validity == 0)
+			if (validity == 0 && \
+			(elem_list[i][j] == 45 && ft_isdigit(elem_list[i][j + 1]) == 0))
+				return (0);
+			if (j > 11)
 				return (0);
 			j++;
 		}
@@ -102,6 +82,33 @@ static int	check_need(char **elem_list, int count)
 	return (-1);
 }
 
+static int	check_int(char **elem_list, int count)
+{
+	int		num;
+	char	*num_str;
+	int		i;
+	int		len;
+
+	num = 0;
+	len = 0;
+	i = 0;
+	while (i < count)
+	{
+		num = ft_atoi(elem_list[i]);
+		num_str = ft_itoa(num);
+		len = ft_strlen(elem_list[i]);
+		if (ft_strncmp(elem_list[i], num_str, len) != 0)
+		{
+			free(num_str);
+			return (0);
+		}
+		else
+			i++;
+	}
+	free(num_str);
+	return (1);
+}
+
 int	validate_input(char **elem_list, int count)
 {
 	int	validity;
@@ -111,6 +118,9 @@ int	validate_input(char **elem_list, int count)
 	if (validity == 0)
 		return (0);
 	validity = duplicate_check(elem_list, count);
+	if (validity == 0)
+		return (0);
+	validity = check_int(elem_list, count);
 	if (validity == 0)
 		return (0);
 	validity = check_need(elem_list, count);
