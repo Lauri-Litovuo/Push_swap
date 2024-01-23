@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/19 15:21:40 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:28:49 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	free_array(char **array, int size)
 static void	invalid_handling(char **elem_list, int count, int validity)
 {
 	if (validity == 0)
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 	free_array(elem_list, count - 1);
 	return ;
 }
@@ -33,7 +33,7 @@ static void	invalid_handling(char **elem_list, int count, int validity)
 t_stack	*make_stack(t_stack	**stack, char **elem_list, int count)
 {
 	t_stack	*new_node;
-	int		content;
+	long	content;
 	int		i;
 
 	i = 0;

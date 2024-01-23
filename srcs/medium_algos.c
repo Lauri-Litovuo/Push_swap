@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:56:39 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/19 14:30:59 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:18:33 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate_to_top(t_stack **stack_ab, int pos, char ab)
 
 	temp = *stack_ab;
 	size = ft_stacksize(temp);
-	if (pos < size / 2)
+	if (pos <= size / 2)
 	{
 		while (pos > 0)
 		{
