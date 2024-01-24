@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:24:07 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/23 17:12:30 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:02:15 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	digit_check(char **elem_list, int count)
 		{
 			validity = ft_isdigit(elem_list[i][j]);
 			if (validity == 0 && \
-			(elem_list[i][j] == 45 && ft_isdigit(elem_list[i][j + 1]) == 0))
+				(elem_list[i][j] != '-' && ft_isdigit(elem_list[i][j] != 1)))
 				return (0);
 			if (j > 11)
 				return (0);
@@ -85,27 +85,29 @@ static int	check_need(char **elem_list, int count)
 static int	check_int(char **elem_list, int count)
 {
 	int		num;
-	char	*num_str;
+	char	**num_str;
 	int		i;
 	int		len;
 
 	num = 0;
-	len = 0;
 	i = 0;
+	num_str = (char **) malloc((count + 1) * sizeof(char **));
+	if (!num_str)
+		return (0);
 	while (i < count)
 	{
 		num = ft_atoi(elem_list[i]);
-		num_str = ft_itoa(num);
+		num_str[i] = ft_itoa(num);
 		len = ft_strlen(elem_list[i]);
-		if (ft_strncmp(elem_list[i], num_str, len) != 0)
+		if (ft_strncmp(elem_list[i], num_str[i], len) != 0)
 		{
-			free(num_str);
+			free_array(num_str, i);
 			return (0);
 		}
 		else
 			i++;
 	}
-	free(num_str);
+	free_array(num_str, i - 1);
 	return (1);
 }
 

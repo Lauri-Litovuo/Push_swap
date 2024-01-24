@@ -6,18 +6,21 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/23 15:28:49 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:52:21 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
 
-static void	free_array(char **array, int size)
+void	free_array(char **array, int size)
 {
-	while (size >= 0)
+	int	i;
+
+	i = 0;
+	while (i <= size)
 	{
-		free(array[size]);
-		size--;
+		free(array[i]);
+		i++;
 	}
 	free(array);
 }
@@ -26,7 +29,7 @@ static void	invalid_handling(char **elem_list, int count, int validity)
 {
 	if (validity == 0)
 		write(2, "Error\n", 6);
-	free_array(elem_list, count - 1);
+	free_array(elem_list, count);
 	return ;
 }
 
@@ -63,7 +66,7 @@ static char	**make_array(char **av, int count)
 
 	i = 0;
 	elem_list = (char **) malloc((count + 1) * sizeof(char **));
-	if (! (elem_list))
+	if (!elem_list)
 		return (NULL);
 	while (i < count)
 	{
@@ -96,6 +99,8 @@ t_stack	*input_to_list(int ac, char **av)
 	}
 	else
 		elem_list = make_array(av, count);
+	if (elem_list == NULL)
+		return (NULL);
 	validity = validate_input(elem_list, count);
 	if (validity != 1)
 	{

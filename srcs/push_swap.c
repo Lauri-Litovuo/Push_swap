@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/23 14:32:30 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:42:54 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,11 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	stack_a = input_to_list(ac, av);
 	if (!stack_a)
-	{
-		free(stack_a);
-		exit (EXIT_FAILURE);
-	}
+		return (0);
 	give_index(&stack_a);
 	count = ft_stacksize(stack_a);
 	sorter_guider(&stack_a, &stack_b, count);
 	free_stack(stack_a);
 	free_stack(stack_b);
-	exit (EXIT_SUCCESS);
+	return (0);
 }
