@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 15:01:54 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/19 14:35:29 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:09:52 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
-# include <stdio.h> //delete this
 
 typedef struct s_stack
 {
@@ -45,5 +44,6 @@ void	sort_four(t_stack **stack_a, t_stack **stack_b);
 void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b);
 void	sorter_guider(t_stack **stack_a, t_stack **stack_b, int ac);
+void	free_array(char **array, int size);
 
 #endif
