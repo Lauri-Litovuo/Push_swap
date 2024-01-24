@@ -6,11 +6,26 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:08:14 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/19 14:25:49 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/24 17:14:18 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
+
+static int	is_sorted(t_stack **stack_ab)
+{
+	t_stack	*temp;
+
+	temp = *stack_ab;
+	while (temp->next != NULL)
+	{
+		if (temp->index < temp->next->index)
+			temp = temp->next;
+		else
+			return (0);
+	}
+	return (1);
+}
 
 static void	check_and_push(t_stack **sa, t_stack **sb, int i, int max_b)
 {
@@ -50,11 +65,11 @@ static void	div_by_bits(t_stack **sa, t_stack **sb, int max_i, int max_b)
 	temp = *sa;
 	index = 0;
 	i = -1;
-	while (i < max_b - 1)
+	while (i + 1 < max_b)
 	{
 		temp = *sa;
 		max_i = ft_stacksize(temp);
-		while (max_i > 0)
+		while (max_i > 0 && is_sorted(sa) == 0)
 		{
 			index = temp->index;
 			if (((index >> (i + 1)) & 1) == 1)
