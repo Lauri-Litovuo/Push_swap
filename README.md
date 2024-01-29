@@ -1,4 +1,3 @@
-```markdown
 # Push Swap
 
 ## Introduction
@@ -19,6 +18,8 @@ To use push_swap program, follow these steps:
 2. Navigate to the project directory: 'cd push_swap'.
 3. Run the `make` command to compile the source files.
 
+And you're good to go!
+
 ## Usage
 To use the push_swap program, follow these steps:
 1. After compiling the project, run the executable with the integer values as arguments.
@@ -31,5 +32,4 @@ To use the push_swap program, follow these steps:
 The program was tested using external tests.
 
 ## License
-This project is licensed under the MIT License - see the [LISENSE](https://github.com/Lauri-Litovuo/Push_swap/blob/main/LICENSE) file for details.
-```
+This project is licensed under the MIT License - see the [LISENSE](LICENSE) file for details.
