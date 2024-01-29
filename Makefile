@@ -43,7 +43,6 @@ $(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(CFLAGS) $^ -o $@
 	@echo "Project ready for use."
 
-## delete this before eval
 DEBUG_NAME = debug.out
 
 debug: $(DEBUG_NAME)
@@ -57,7 +56,6 @@ $(DEBUG_NAME): $(LIBFT) $(OBJ)
 cleandebug: fclean
 	@rm -f $(DEBUG_NAME)
 	@echo "debug.out removed"
-## to here
 
 $(LIBFT): $L
 	@make -C $L
