@@ -6,11 +6,20 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 09:19:50 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/11 15:02:31 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:27:48 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
+
+/**
+ * @brief Swaps the first 2 elements at the top of a stack. 
+ * Does nothing if there is only one or no elements. 
+ * Swap simult swaps both stacks.
+ * 
+ * @param stack 
+ * @param ch 
+ */
 
 void	swap_ab(t_stack **stack, char ch)
 {

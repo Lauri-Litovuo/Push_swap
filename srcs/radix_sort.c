@@ -6,11 +6,18 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:08:14 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/24 17:14:18 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:38:00 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
+
+/**
+ * @brief Checks if stack is sorted or not
+ * 
+ * @param stack_ab 
+ * @return int Returns 1 if sorted 0 if not.
+ */
 
 static int	is_sorted(t_stack **stack_ab)
 {
@@ -26,6 +33,17 @@ static int	is_sorted(t_stack **stack_ab)
 	}
 	return (1);
 }
+
+/**
+ * @brief The function checks if elements' binary indexes are 0 or 1.
+ * If the given binary is 0 it leaves the index to stack else pushes 
+ * it to stack a.
+ * 
+ * @param sa Stack a
+ * @param sb Stack b
+ * @param i running index
+ * @param max_b max bits in elements index.
+ */
 
 static void	check_and_push(t_stack **sa, t_stack **sb, int i, int max_b)
 {
@@ -56,6 +74,16 @@ static void	check_and_push(t_stack **sa, t_stack **sb, int i, int max_b)
 	}
 }
 
+/**
+ * @brief Function divides the stack A by the elements index bits.
+ * If binary is 1 it stays at stack A if 0 pushed to stack B.
+ * 
+ * @param sa stack a
+ * @param sb stack b
+ * @param max_i maximum index, equals stack size
+ * @param max_b maximum binary size to represent biggest index of elements. 
+ */
+
 static void	div_by_bits(t_stack **sa, t_stack **sb, int max_i, int max_b)
 {
 	t_stack	*temp;
@@ -83,6 +111,14 @@ static void	div_by_bits(t_stack **sa, t_stack **sb, int max_i, int max_b)
 		check_and_push(sa, sb, i, max_b);
 	}
 }
+
+/**
+ * @brief Sorts elements based on their indexs' binary digits by bucketing them
+ * to stack a (binary 1) and stack b (binary 0).
+ * 
+ * @param stack_a 
+ * @param stack_b 
+ */
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {

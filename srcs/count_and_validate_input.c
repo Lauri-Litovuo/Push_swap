@@ -6,12 +6,19 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:24:07 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/24 14:02:15 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:30:00 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
 
+/**
+ * @brief Checks if string array has only digits as elements
+ * 
+ * @param elem_list 
+ * @param count 
+ * @return int returns 1 if only digits, 0 if something else.
+ */
 static int	digit_check(char **elem_list, int count)
 {
 	int		validity;
@@ -37,6 +44,14 @@ static int	digit_check(char **elem_list, int count)
 	}
 	return (1);
 }
+
+/**
+ * @brief Checks if string array has any duplicates as elements.
+ * 
+ * @param elem_list 
+ * @param count 
+ * @return int returns 1 if does not have duplicates, 0 if does.
+ */
 
 static int	duplicate_check(char **elem_list, int count)
 {
@@ -67,6 +82,15 @@ static int	duplicate_check(char **elem_list, int count)
 	return (1);
 }
 
+/**
+ * @brief Checks if the string array elements are in sorted order from 
+ * smallest to biggest.
+ * 
+ * @param elem_list 
+ * @param count 
+ * @return int returns 0 if sorted, 1 if not.
+ */
+
 static int	check_need(char **elem_list, int count)
 {
 	int		i;
@@ -81,6 +105,14 @@ static int	check_need(char **elem_list, int count)
 	}
 	return (-1);
 }
+
+/**
+ * @brief Checks if given numbers are within the int min and max values.
+ * 
+ * @param elem_list 
+ * @param count 
+ * @return int returns 0 if not, 1 if between values.
+ */
 
 static int	check_int(char **elem_list, int count)
 {

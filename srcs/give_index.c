@@ -6,11 +6,19 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 14:27:53 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/19 14:32:43 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:23:57 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
+
+/**
+ * @brief Function finds the minimum value from the list that does not have
+ * an index given and returns it.
+ * 
+ * @param stack_ab 
+ * @return t_stack* 
+ */
 
 static t_stack	*assign_min(t_stack **stack_ab)
 {
@@ -31,6 +39,13 @@ static t_stack	*assign_min(t_stack **stack_ab)
 	}
 	return (min);
 }
+
+/**
+ * @brief Gives indexes to linked list stack elements from smallest to biggest
+ * content int value.
+ * 
+ * @param stack_ab 
+ */
 
 void	give_index(t_stack **stack_ab)
 {

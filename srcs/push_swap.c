@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 12:13:11 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/24 12:42:54 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:31:11 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ void	sorter_guider(t_stack **stack_a, t_stack **stack_b, int count)
 	else
 		return ;
 }
+
+/**
+ * @brief Sorts given arguments (as numbers) to linked list stack.
+ * 
+ * @param ac 
+ * @param av 
+ * @return int 
+ */
+
 
 int	main(int ac, char **av)
 {

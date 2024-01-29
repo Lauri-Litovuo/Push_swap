@@ -6,7 +6,7 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:53:33 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/24 12:52:21 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:21:39 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ static void	invalid_handling(char **elem_list, int count, int validity)
 	free_array(elem_list, count);
 	return ;
 }
+
+/**
+ * @brief Creates a linked list stack from string array.
+ * 
+ * @param stack 
+ * @param elem_list Given string array.
+ * @param count Size of the element list.
+ * @return t_stack* Returns pointer to the created stack.
+ */
 
 t_stack	*make_stack(t_stack	**stack, char **elem_list, int count)
 {
@@ -59,6 +68,14 @@ t_stack	*make_stack(t_stack	**stack, char **elem_list, int count)
 	return (new_node);
 }
 
+/**
+ * @brief Creates a string array from the arguments. 
+ * 
+ * @param av argument vectors
+ * @param count argument count - 1
+ * @return char** Created string array.
+ */
+
 static char	**make_array(char **av, int count)
 {
 	char	**elem_list;
@@ -82,6 +99,15 @@ static char	**make_array(char **av, int count)
 	return (elem_list);
 }
 
+
+/**
+ * @brief Creates a linked list stack from the user input arguments.
+ * 
+ * @param ac Argument count
+ * @param av Argument vectors
+ * @return t_stack* Created stack.
+ */
+
 t_stack	*input_to_list(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -89,7 +115,6 @@ t_stack	*input_to_list(int ac, char **av)
 	int		count;
 	int		validity;
 
-	elem_list = NULL;
 	stack_a = NULL;
 	count = ac - 1;
 	if (ac == 2)

@@ -6,11 +6,19 @@
 /*   By: llitovuo <llitovuo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:04:51 by llitovuo          #+#    #+#             */
-/*   Updated: 2024/01/13 17:55:56 by llitovuo         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:27:39 by llitovuo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/pushlib.h"
+
+/**
+ * @brief Shifts up all elements of a stack by 1.
+ * The first element at the stack becomes the last one.
+ * 
+ * @param stack Stack where it is implemented
+ * @param ch stack identifier a/b
+ */
 
 void	rotate_ab(t_stack **stack, char ch)
 {
